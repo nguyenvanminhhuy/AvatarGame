@@ -11,5 +11,6 @@ new Phaser.Game({
   pixelArt: true,
   backgroundColor: '#2d6a4f',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+  physics: { default: 'arcade', arcade: { debug: true } }, // debug: vẽ khung va chạm, tắt khi phát hành
   scene: [BootScene, PlayScene],
 })
