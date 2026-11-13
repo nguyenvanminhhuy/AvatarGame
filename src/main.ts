@@ -2,15 +2,18 @@ import './style.css'
 import Phaser from 'phaser'
 import { BootScene } from './scenes/BootScene'
 import { PlayScene } from './scenes/PlayScene'
+import { TitleScene } from './scenes/TitleScene'
 
-new Phaser.Game({
+// Phong cách cartoon mượt: KHÔNG bật pixelArt (cần làm mịn khi thu phóng).
+const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'app',
-  width: 640,
-  height: 360,
-  pixelArt: true,
-  backgroundColor: '#2d6a4f',
+  width: 960,
+  height: 544,
+  backgroundColor: '#1b1b1b',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-  physics: { default: 'arcade', arcade: { debug: true } }, // debug: vẽ khung va chạm, tắt khi phát hành
-  scene: [BootScene, PlayScene],
+  scene: [BootScene, TitleScene, PlayScene],
 })
+
+// Chỉ ở chế độ dev: cho phép công cụ kiểm thử/DevTools truy cập game (không có trong bản build).
+if (import.meta.env.DEV) (window as unknown as { __game: Phaser.Game }).__game = game

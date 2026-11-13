@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# kiểm thử e2e
+e2e-shots/
+
+# Gói asset bên thứ ba (giấy phép cấm phân phối lại gói gốc): chỉ giữ cục bộ, không commit
+art-source/third-party/
